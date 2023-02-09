@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 /// or other touch-enabled devices.
 class NumericKeyPad extends StatelessWidget {
   /// Creates a widget that builds the numeric keypad.
-  const NumericKeyPad({Key? key}) : super(key: key);
+  const NumericKeyPad({super.key});
 
   @override
   Widget build(BuildContext context) {
