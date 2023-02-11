@@ -5,7 +5,16 @@ import 'package:flutter/material.dart';
 /// or other touch-enabled devices.
 class NumericKeyPad extends StatelessWidget {
   /// Creates a widget that builds the numeric keypad.
-  const NumericKeyPad({super.key});
+  const NumericKeyPad({
+    super.key,
+    required this.onInputNumber,
+    required this.onClearLastInput,
+    required this.onClearAll,
+  });
+
+  final ValueSetter<int> onInputNumber;
+  final VoidCallback onClearLastInput;
+  final VoidCallback onClearAll;
 
   @override
   Widget build(BuildContext context) {
