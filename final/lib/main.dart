@@ -63,7 +63,11 @@ class _CustomNumPadPageState extends State<CustomNumPadPage> {
           ),
           Expanded(
             flex: 2,
-            child: NumericKeyPad(),
+            child: NumericKeyPad(
+              onInputNumber: (value) {},
+              onClearLastInput: () {},
+              onClearAll: () {},
+            ),
           ),
         ],
       ),
