@@ -47,7 +47,20 @@ class _CustomNumPadPageState extends State<CustomNumPadPage> {
     super.dispose();
   }
 
-  // TODO: Implement method to input number to TextField
+  void inputNumber(int value) {
+    _controller.text += value.toString();
+  }
+
+  void clearLastInput() {
+    _controller.text = _controller.text.substring(
+      0,
+      _controller.text.length - 1,
+    );
+  }
+
+  void clearAll() {
+    _controller.clear();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -58,15 +71,27 @@ class _CustomNumPadPageState extends State<CustomNumPadPage> {
         children: <Widget>[
           Expanded(
             child: Center(
-                // TODO: Add a TextField
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 12),
+                child: TextField(
+                  controller: _controller,
+                  autofocus: true,
+                  showCursor: true,
+                  keyboardType: TextInputType.none,
+                  decoration: const InputDecoration(
+                    filled: true,
+                    fillColor: Colors.white,
+                  ),
                 ),
+              ),
+            ),
           ),
           Expanded(
             flex: 2,
             child: NumericKeyPad(
-              onInputNumber: (value) {},
-              onClearLastInput: () {},
-              onClearAll: () {},
+              onInputNumber: inputNumber,
+              onClearLastInput: clearLastInput,
+              onClearAll: clearAll,
             ),
           ),
         ],
