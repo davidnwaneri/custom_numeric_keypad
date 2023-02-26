@@ -52,10 +52,12 @@ class _CustomNumPadPageState extends State<CustomNumPadPage> {
   }
 
   void clearLastInput() {
-    _controller.text = _controller.text.substring(
-      0,
-      _controller.text.length - 1,
-    );
+    if(_controller.text.isNotEmpty){
+      _controller.text = _controller.text.substring(
+        0,
+        _controller.text.length - 1,
+      );
+    }
   }
 
   void clearAll() {
